@@ -12,7 +12,6 @@ class Tabata
     countdown
 
     8.times do |i|
-      say "Set number #{i + 1}"
       workout_countdown
       rest_countdown
     end
@@ -23,33 +22,40 @@ class Tabata
   private
 
   def countdown
-    %w(three two one).each do |word|
+    %w(3 2 1).each do |word|
+      print "#{word} "
       say(word)
       sleep 1
     end
 
-    say "go!"
+    puts
+
+    say "begin"
   end
 
   def say(words)
     `say '#{words}'`
   end
 
-  def sleep_and_beep
+  def sleep_and_print
     sleep 1
-    print "\a"
+    print '.'
   end
 
   def workout_countdown
-    20.times { sleep_and_beep }
+    20.times { sleep_and_print }
 
-    say "rest!"
+    puts
+
+    say "rest"
   end
 
   def rest_countdown
-    10.times { sleep_and_beep }
+    10.times { sleep_and_print }
 
-    say "go!"
+    puts
+
+    say "work"
   end
 
 end
